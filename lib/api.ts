@@ -122,9 +122,31 @@ export async function getPostAndMorePosts(
 const HOTEL_GRAPHQL_FIELDS = `
   hotelName
   slug
+  description {
+    json
+    links {
+      assets {
+        block {
+          sys {
+            id
+          }
+          url
+          description
+        }
+      }
+    }
+  }
   coverImage {
     url
   }
+  country {
+    title
+  }
+  city {
+    cityName
+  }
+  pricePerNight
+  starRating
 `;
 
 function extractHotel(fetchResponse: any): any {
