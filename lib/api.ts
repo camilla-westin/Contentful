@@ -72,7 +72,7 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
 export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
+      postCollection(where: { slug_exists: true }, preview: ${
         isDraftMode ? "true" : "false"
       }) {
         items {
