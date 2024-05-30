@@ -154,7 +154,7 @@ function extractHotel(fetchResponse: any): any {
 }
 
 function extractHotelEntries(fetchResponse: any): any[] {
-  return fetchResponse?.data?.hotelCollection?.items || [];
+  return fetchResponse?.data?.hotelCollection?.items;
 }
 
 export async function getPreviewHotelBySlug(slug: string | null): Promise<any> {
@@ -174,11 +174,22 @@ export async function getPreviewHotelBySlug(slug: string | null): Promise<any> {
 export async function getAllHotels(isDraftMode: boolean): Promise<any[]> {
   const entries = await fetchGraphQL(
     `query {
-      hotelCollection(where: { slug_exists: true }, order: date_DESC, preview: ${
-        isDraftMode ? "true" : "false"
-      }) {
+      hotelCollection(
+        where: { slug_exists: true }, 
+       ) {
         items {
-          ${HOTEL_GRAPHQL_FIELDS}
+          hotelName
+          slug
+          coverImage {
+            url
+          }
+          country {
+            title
+          }
+          city {
+            cityName
+          }
+          starRating
         }
       }
     }`,
