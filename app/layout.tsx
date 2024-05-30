@@ -1,17 +1,11 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import { EXAMPLE_PATH, CMS_NAME } from "@/lib/constants";
+import { Providers } from "./providers";
+import { fonts } from "./fonts";
 
 export const metadata = {
   title: `Dreamy destinations`,
   description: `A hotel website.`,
 };
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 function Footer() {
   return (
@@ -27,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={fonts.rubik.variable}>
       <body>
         <section className="min-h-screen">
-          <main>{children}</main>
+          <main>
+            <Providers>{children}</Providers>
+          </main>
           <Footer />
         </section>
       </body>

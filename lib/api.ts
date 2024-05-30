@@ -72,9 +72,9 @@ export async function getPreviewPostBySlug(slug: string | null): Promise<any> {
 export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
   const entries = await fetchGraphQL(
     `query {
-      postCollection(where: { slug_exists: true }, preview: ${
-        isDraftMode ? "true" : "false"
-      }) {
+      postCollection(
+        where: { slug_exists: true }, 
+        preview: ${isDraftMode ? "true" : "false"}) {
         items {
           ${POST_GRAPHQL_FIELDS}
         }
@@ -176,10 +176,12 @@ export async function getAllHotels(isDraftMode: boolean): Promise<any[]> {
     `query {
       hotelCollection(
         where: { slug_exists: true }, 
+        preview: ${isDraftMode ? "true" : "false"}
        ) {
         items {
           hotelName
           slug
+         
           coverImage {
             url
           }
@@ -189,6 +191,7 @@ export async function getAllHotels(isDraftMode: boolean): Promise<any[]> {
           city {
             cityName
           }
+          pricePerNight 
           starRating
         }
       }
