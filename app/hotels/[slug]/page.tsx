@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getAllHotels, getHotel } from "@/lib/api";
-import CoverImage from "../../cover-image";
+import CoverImage from "../../components/cover-image";
 import { draftMode } from "next/headers";
 import { Markdown } from "@/lib/markdown";
 

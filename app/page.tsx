@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { draftMode } from "next/headers";
 
-import Date from "./date";
-import CoverImage from "./cover-image";
-import Avatar from "./avatar";
-import MoreStories from "./more-stories";
+import Date from "./components/date";
+import CoverImage from "./components/cover-image";
+import Avatar from "./components/avatar";
+import MoreStories from "./components/more-stories";
 
 import { getAllPosts } from "@/lib/api";
 
