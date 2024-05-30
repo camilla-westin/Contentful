@@ -1,5 +1,6 @@
 import { getAllHotels } from "@/lib/api";
 import ContentfulImage from "../../lib/contentful-image";
+import Link from "next/link";
 
 export default async function HotelsPage() {
   const hotels = await getAllHotels(false);
@@ -9,7 +10,11 @@ export default async function HotelsPage() {
       <h1>Hotels</h1>
       <div className="flex">
         {hotels.map((hotel) => (
-          <div key={hotel.id} className="w-1/3 p-4">
+          <Link
+            key={hotel.id}
+            href={`/hotels/${hotel.slug}`}
+            className="w-1/3 p-4"
+          >
             <span>
               {hotel.city.cityName}, {hotel.country.title}
             </span>
@@ -22,7 +27,7 @@ export default async function HotelsPage() {
               src={hotel.coverImage.url}
             />
             <h2>{hotel.hotelName}</h2>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
