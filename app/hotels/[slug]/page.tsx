@@ -15,7 +15,7 @@ export default async function HotelPage({
   return (
     <div className="container mx-auto px-5">
       <div className="py-5">
-        <Link href="/">Back</Link>
+        <Link href="/hotels">Back</Link>
       </div>
 
       <div className="mb-8 sm:mx-0 md:mb-16">

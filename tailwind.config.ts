@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)"],
       },
+      backgroundColor: {
+        lightgrey: "#f7f7f7",
+      },
     },
   },
   future: {

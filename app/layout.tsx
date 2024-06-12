@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Providers } from "./providers";
 import { fonts } from "./fonts";
+import Header from "@/app/components/header";
 
 export const metadata = {
   title: `Dreamy destinations`,
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={fonts.rubik.variable}>
       <body>
+        <Header />
         <section className="min-h-screen">
           <main>
             <Providers>{children}</Providers>
