@@ -20,8 +20,12 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
 const POST_GRAPHQL_FIELDS = `
   slug
   title
-  coverImage {
-    url
+  postImage {
+    imageTitle
+    image {
+      url
+    }
+    altText
   }
   date
   author {

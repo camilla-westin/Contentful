@@ -9,14 +9,16 @@ export default function CoverImage({
   title,
   url,
   slug,
+  alttext,
 }: {
   title: string;
   url: string;
   slug?: string;
+  alttext?: string;
 }) {
   const image = (
     <ContentfulImage
-      alt={`Cover Image for ${title}`}
+      alt={alttext}
       priority
       width={2000}
       height={1000}
