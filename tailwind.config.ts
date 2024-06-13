@@ -14,6 +14,8 @@ export default {
       fontFamily: {},
       backgroundColor: {
         lightgrey: "#f7f7f7",
+        darkpurple: "#41315b",
+        darkpink: "#cc1e4c",
       },
     },
   },
