@@ -19,7 +19,11 @@ export default async function HotelPage({
       </div>
 
       <div className="mb-8 sm:mx-0 md:mb-16">
-        <CoverImage title={hotel.hotelName} url={hotel.coverImage.url} />
+        <CoverImage
+          title={hotel.hotelName}
+          url={hotel.defaultImage.image.url}
+          alttext={hotel.defaultImage.altText}
+        />
       </div>
       <div className="flex">
         <div className="w-8/12 pr-20">

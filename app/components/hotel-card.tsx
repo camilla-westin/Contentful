@@ -15,6 +15,11 @@ interface Hotel {
   hotelName: string;
   slug?: string;
   coverImage: { url: string };
+  defaultImage: {
+    imageTitle: string;
+    image: { url: string };
+    altText: string;
+  };
   pricePerNight: number;
   city: { cityName: string };
   country: { title: string };
@@ -25,14 +30,16 @@ export default function HotelCard({ hotel }: { hotel: Hotel }) {
     <Card maxW="sm">
       <Link href={`/hotels/${hotel.slug}`}>
         <CardBody>
-          <Image
-            src={hotel.coverImage.url}
-            alt={hotel.hotelName}
-            borderRadius="sm"
-            boxSize="350px"
-            objectFit="cover"
-            height="200px"
-          />
+          {hotel.defaultImage && (
+            <Image
+              src={hotel.defaultImage.image.url}
+              alt={hotel.defaultImage.altText}
+              borderRadius="sm"
+              boxSize="350px"
+              objectFit="cover"
+              height="200px"
+            />
+          )}
           <Stack mt="6" spacing="3">
             <Heading size="md">{hotel.hotelName}</Heading>
           </Stack>

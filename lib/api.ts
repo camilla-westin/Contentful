@@ -140,8 +140,12 @@ const HOTEL_GRAPHQL_FIELDS = `
       }
     }
   }
-  coverImage {
-    url
+  defaultImage {
+    imageTitle
+    image {
+      url
+    }
+    altText
   }
   country {
     title
@@ -185,9 +189,12 @@ export async function getAllHotels(isDraftMode: boolean): Promise<any[]> {
         items {
           hotelName
           slug
-         
-          coverImage {
-            url
+          defaultImage {
+            imageTitle
+            image {
+              url
+            }
+            altText
           }
           country {
             title
