@@ -147,6 +147,17 @@ const HOTEL_GRAPHQL_FIELDS = `
     }
     altText
   }
+  carousel {
+    internalName
+    imagesCollection (limit: 5) {
+      items {
+        imageTitle
+        image {
+          url
+        }
+      }
+    }	
+  }
   country {
     title
   }
