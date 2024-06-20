@@ -18,6 +18,7 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
 }
 
 const POST_GRAPHQL_FIELDS = `
+  __typename
   slug
   title
   postImage {
@@ -291,6 +292,19 @@ const LANDINGPAGE_GRAPHQL_FIELDS = `
               url
             }
           }
+        }
+      }
+      ... on Post {
+        slug
+        title
+        date
+        excerpt
+        postImage {
+          imageTitle
+          image {
+            url
+          }
+          altText
         }
       }
     }

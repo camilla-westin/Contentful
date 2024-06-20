@@ -1,6 +1,7 @@
 import { getLandingPage } from "@/lib/api";
 import CarouselComponent from "@/app/components/carousel/carousel";
 import { draftMode } from "next/headers";
+import Teaser from "../components/Teaser/teaser";
 
 export default async function LandingPage({
   params,
@@ -17,9 +18,17 @@ export default async function LandingPage({
       </h1>
       {landingpage.modulesCollection.items.map((module: any, index: number) => {
         if (module.__typename === "ImageCarousel") {
-          return <CarouselComponent moreImages={module.imagesCollection} />;
+          return (
+            <CarouselComponent
+              key={index}
+              moreImages={module.imagesCollection}
+            />
+          );
         }
-        return null; // Add this line to ensure all paths return a value
+        if (module.__typename === "Post") {
+          return <Teaser content={module} />;
+        }
+        return null;
       })}
     </div>
   );
