@@ -276,3 +276,68 @@ export async function getHotel(slug: string, preview: boolean): Promise<any> {
     hotel: extractHotel(entry),
   };
 }
+
+const LANDINGPAGE_GRAPHQL_FIELDS = `
+ slug
+ heading
+ modulesCollection {
+    items {
+      __typename
+      ... on ImageCarousel {
+        imagesCollection(limit: 10) {
+          items {
+            imageTitle
+            image {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+function extractLandingPage(fetchResponse: any): any {
+  return fetchResponse?.data?.landingPageCollection?.items?.[0];
+}
+
+export async function getPreviewLandingPageBySlug(
+  slug: string | null
+): Promise<any> {
+  const entry = await fetchGraphQL(
+    `query {
+      landingPageCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
+        items {
+          slug
+          heading
+        }
+      }
+    }`,
+    true
+  );
+  return extractLandingPage(entry);
+}
+
+export async function getLandingPage(
+  slug: string,
+  preview: boolean
+): Promise<any> {
+  const entry = await fetchGraphQL(
+    `query {
+      landingPageCollection(
+      where: { slug: "${slug}" }, 
+      preview: ${preview ? "true" : "false"}, 
+      limit: 1) 
+      {
+        items {
+           ${LANDINGPAGE_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    preview
+  );
+
+  return {
+    landingpage: extractLandingPage(entry),
+  };
+}

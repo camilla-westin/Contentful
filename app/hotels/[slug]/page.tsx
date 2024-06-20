@@ -25,7 +25,7 @@ export default async function HotelPage({
         hotel.carousel.imagesCollection.items.length > 0 ? (
           <CarouselComponent
             defaultImage={hotel.defaultImage}
-            moreImages={hotel.carousel}
+            moreImages={hotel.carousel.imagesCollection}
           />
         ) : (
           <CoverImage

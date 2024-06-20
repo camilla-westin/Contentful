@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./carousel.css";
 
 interface CarouselComponentProps {
-  defaultImage: {
+  defaultImage?: {
     image: {
       url: string;
     };
@@ -25,27 +25,32 @@ export default function CarouselComponent({
   defaultImage,
   moreImages,
 }: CarouselComponentProps) {
+  const firstImage =
+    defaultImage ||
+    (moreImages && moreImages.items.length > 0 ? moreImages.items[0] : null);
   return (
     <Carousel>
-      {defaultImage && (
+      {firstImage && (
         <div className="slide">
           <img
-            alt={defaultImage.altText}
-            src={`${defaultImage.image.url}?fit=fill&w=1200&h=700&f=center`}
+            alt={firstImage.altText}
+            src={`${firstImage.image.url}?fit=fill&w=1200&h=700&f=center`}
             key="default"
           />
         </div>
       )}
 
       {moreImages &&
-        moreImages.imagesCollection.items.map((imageItem, index) => (
-          <div className="slide" key={index}>
-            <img
-              alt="sample_file"
-              src={`${imageItem.image.url}?fit=fill&w=1200&h=700&f=center`}
-            />
-          </div>
-        ))}
+        moreImages.items
+          .filter((imageItem) => imageItem !== firstImage)
+          .map((imageItem, index) => (
+            <div className="slide" key={index}>
+              <img
+                alt="sample_file"
+                src={`${imageItem.image.url}?fit=fill&w=1200&h=700&f=center`}
+              />
+            </div>
+          ))}
     </Carousel>
   );
 }

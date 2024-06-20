@@ -17,7 +17,7 @@ export default function Header() {
                 <Link href="/hotels">Hotels</Link>
               </li>
               <li>
-                <Link href="/about">About</Link>
+                <Link href="/page/landing-page">Landing Page</Link>
               </li>
             </ul>
           </nav>
