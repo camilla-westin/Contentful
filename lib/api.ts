@@ -281,7 +281,7 @@ export async function getHotel(slug: string, preview: boolean): Promise<any> {
 const LANDINGPAGE_GRAPHQL_FIELDS = `
  slug
  heading
- modulesCollection {
+ modulesCollection(limit: 10) {
     items {
       __typename
       ... on ImageCarousel {

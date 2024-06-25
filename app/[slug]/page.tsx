@@ -26,7 +26,7 @@ export default async function LandingPage({
           );
         }
         if (module.__typename === "Post") {
-          return <Teaser content={module} />;
+          return <Teaser key={index} content={module} />;
         }
         return null;
       })}
