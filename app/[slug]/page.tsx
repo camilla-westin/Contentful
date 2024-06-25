@@ -1,7 +1,7 @@
 import { getLandingPage } from "@/lib/api";
 import CarouselComponent from "@/app/components/carousel/carousel";
 import { draftMode } from "next/headers";
-import Teaser from "../components/Teaser/teaser";
+import Teaser from "../components/teaser/teaser";
 
 export default async function LandingPage({
   params,

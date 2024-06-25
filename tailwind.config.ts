@@ -13,7 +13,7 @@ export default {
     extend: {
       fontFamily: {},
       backgroundColor: {
-        lightgrey: "#f7f7f7",
+        lightgrey: "#F6F6F7",
         darkpurple: "#41315b",
         darkpink: "#cc1e4c",
       },
