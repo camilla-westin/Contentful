@@ -125,6 +125,7 @@ export async function getPostAndMorePosts(
 }
 
 const HOTEL_GRAPHQL_FIELDS = `
+  sys { id }
   hotelName
   slug
   description {
@@ -199,6 +200,7 @@ export async function getAllHotels(isDraftMode: boolean): Promise<any[]> {
         preview: ${isDraftMode ? "true" : "false"}
        ) {
         items {
+          sys { id }
           hotelName
           slug
           defaultImage {

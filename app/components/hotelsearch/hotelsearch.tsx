@@ -1,8 +1,11 @@
 import "./hotelsearch.css";
-import { Input } from "@nextui-org/react";
-import { Button, ButtonGroup } from "@nextui-org/button";
+import { getAllHotels } from "@/lib/api";
+import { Button } from "@nextui-org/button";
+import SelectComponent from "./selectcomponent";
 
-export default function Hotelsearch() {
+export default async function Hotelsearch() {
+  const hotels = await getAllHotels(false);
+
   return (
     <section className="hotelsearch-component pb-8 mb-16">
       <div className="container mx-auto px-5 flex flex-col justify-end h-full">
@@ -12,14 +15,10 @@ export default function Hotelsearch() {
         >
           Find your dreamy destination
         </h1>
-        <div className="bg-lightgrey p-10 border mt-8 flex items-center justify-center">
+        <div className="bg-white p-10 border mt-8 flex items-center justify-center">
           <div className="flex items-center justify-center w-4/6 text-center">
-            <Input
-              type="text"
-              variant="bordered"
-              label="Enter your destination"
-              className="mr-4 bg-white"
-            />
+            <SelectComponent hotels={hotels} />
+
             <Button color="primary" variant="solid">
               Find hotel
             </Button>
