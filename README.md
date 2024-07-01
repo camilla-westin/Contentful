@@ -2,12 +2,12 @@
 
 This example showcases Next.js's [Static Generation](https://nextjs.org/docs/basic-features/pages) feature using [Contentful](https://www.contentful.com/) as the data source.
 
-# Dev
+## Dev
 
 npm install
 npm run dev
 
-# or
+## or
 
 yarn install
 yarn dev
