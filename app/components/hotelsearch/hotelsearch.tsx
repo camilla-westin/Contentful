@@ -3,8 +3,13 @@ import { getAllHotels } from "@/lib/api";
 import { Button } from "@nextui-org/button";
 import SelectComponent from "./selectcomponent";
 
+async function getData() {
+  const res = await getAllHotels(false);
+  return res;
+}
+
 export default async function Hotelsearch() {
-  const hotels = await getAllHotels(false);
+  const hotels = await getData();
 
   return (
     <section className="hotelsearch-component pb-8 mb-16">
