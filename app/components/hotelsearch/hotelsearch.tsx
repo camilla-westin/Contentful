@@ -1,7 +1,7 @@
 import "./hotelsearch.css";
 import { getAllHotels } from "@/lib/api";
-import { Button } from "@nextui-org/button";
-import SelectComponent from "./selectcomponent";
+
+import FormComponent from "./form";
 
 async function getData() {
   const res = await getAllHotels(false);
@@ -22,11 +22,7 @@ export default async function Hotelsearch() {
         </h1>
         <div className="bg-white p-10 border mt-8 flex items-center justify-center">
           <div className="flex items-center justify-center w-4/6 text-center">
-            <SelectComponent hotels={hotels} />
-
-            <Button color="primary" variant="solid">
-              Find hotel
-            </Button>
+            <FormComponent hotels={hotels} />
           </div>
         </div>
       </div>
