@@ -19,6 +19,8 @@ export default async function ResultsPage() {
         .map((hotel) => (
           <HotelCard hotel={hotel} key={hotel.id} />
         ))}
+
+      {/* TODO: Man kan inte ha async i en client-funktion. */}
     </div>
   );
 }
